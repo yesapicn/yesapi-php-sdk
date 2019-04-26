@@ -24,7 +24,7 @@ class YesApiPHPSDK {
      * @param int       $timeoutMs 超时时间，单位为毫秒
      * @return array/FALSE
      */
-    public function request($service, $params, $timeoutMs = 3000) {
+    public static function request($service, $params, $timeoutMs = 3000) {
         $url = rtrim(YESAPI_HOST. '/') . '/?s=' . $service;
 
         // 生成签名
