@@ -47,7 +47,11 @@ class YesApiPHPSDK {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT_MS, $timeoutMs);
-
+        
+        // TODO：透传客户端的IP和UA，方便小白接口进行统计。例如Yii2的写法
+        //curl_setopt($ch, CURLOPT_HTTPHEADER, array('X-FORWARDED-FOR:'.\Yii::$app->request->userIP, 'CLIENT-IP:'.\Yii::$app->request->userIP));
+        //curl_setopt($ch, CURLOPT_USERAGENT, \Yii::$app->request->userAgent);
+        
         if (!empty($data)) {
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
